@@ -1,0 +1,50 @@
+body {
+    display: grid; /* Set to organize the sidebar, header, and main content */
+    height: 100vh;
+    margin: 0;
+    grid-template-areas: 
+        "sidebar header header header header"
+        "sidebar main-content main-content main-content main-content"
+        "sidebar main-content main-content main-content main-content"
+        "sidebar main-content main-content main-content main-content"
+        "sidebar main-content main-content main-content main-content";
+}
+
+.sidebar {
+    grid-area: sidebar;
+    border: 2px solid black;
+}
+
+.header {
+    grid-area: header;
+    border: 2px solid black;
+}
+
+.main-content {
+    grid-area: main-content;
+    display: grid; /* Set to organize the projects, announcements, and trending */
+    border: 2px solid black;
+    grid-template-areas: 
+        "projects-container projects-container projects-container announcements"
+        "projects-container projects-container projects-container announcements"
+        "projects-container projects-container projects-container trending"
+        "projects-container projects-container projects-container trending";
+}
+
+.projects-container {
+    grid-area: projects-container;
+    border: 2px solid black;
+    display: grid; /* Set to organize the projects */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.announcements {
+    grid-area: announcements;
+    border: 2px solid black;
+}
+
+.trending {
+    grid-area: trending;
+border: 2px solid black;
+}
