@@ -2,17 +2,51 @@ body {
     display: grid; /* Set to organize the sidebar, header, and main content */
     height: 100vh;
     margin: 0;
+    grid-template-columns: auto 1fr; /* Found out that I can use this to make the grid-template-area more fitting (less extra space), delete this line to see */
+    grid-template-rows: auto 1fr; /* Same as the above */
     grid-template-areas: 
-        "sidebar header header header header"
-        "sidebar main-content main-content main-content main-content"
-        "sidebar main-content main-content main-content main-content"
-        "sidebar main-content main-content main-content main-content"
-        "sidebar main-content main-content main-content main-content";
+        "sidebar header header header header header"
+        "sidebar main-content main-content main-content main-content main-content";
 }
 
 .sidebar {
     grid-area: sidebar;
     border: 2px solid black;
+    display: flex; /* Flex so I can organize the sidebar tabs */
+    flex-direction: column;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(0, 183, 255);
+}
+.dashboard {
+    display: flex;
+    margin: 10px 75px 0 10px; /* Margin right is set to 75px so it expands a little bit (grid-template-column set to auto) */
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.dashboard img {
+    height: 50px;
+}
+
+.dashboard span {
+    font-size: 34px;
+    padding-left: 10px;
+}
+
+.tabs-container div {
+    display: flex;
+    align-items: center;
+    grid-gap: 5px; /* Adds a gap between the tab logo and name */
+}
+
+.tabs-container img {
+    height: 40px;
+    padding: 0 15px 0 15px;
+}
+
+.communities {
+    margin-bottom: 50px;
 }
 
 .header {
@@ -35,8 +69,6 @@ body {
     grid-area: projects-container;
     border: 2px solid black;
     display: grid; /* Set to organize the projects */
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
 }
 
 .announcements {
@@ -46,5 +78,5 @@ body {
 
 .trending {
     grid-area: trending;
-border: 2px solid black;
+    border: 2px solid black;
 }
