@@ -27,6 +27,7 @@ body {
 
 .dashboard img {
     height: 50px;
+    filter: invert(1); /* Original icon colors are black, but this sets it to white */
 }
 
 .dashboard span {
@@ -43,6 +44,7 @@ body {
 .tabs-container img {
     height: 40px;
     padding: 0 15px 0 15px;
+    filter: invert(1);
 }
 
 .communities {
