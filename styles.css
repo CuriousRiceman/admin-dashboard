@@ -53,6 +53,8 @@ body {
 .header {
     grid-area: header;
     font-weight: bold;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+    /* horizontal offset, vertical offset, blur radius, spread (negative reduces size) */
 }
 
 .first-row {
@@ -145,27 +147,73 @@ body {
 
 .main-content {
     grid-area: main-content;
-    display: grid; /* Set to organize the projects, announcements, and trending */
-    border: 2px solid black;
+    display: grid;
+    background-color: rgba(226, 232, 240);
+    grid-template-columns: auto 350px; /* Adjust column widths as needed */
+    grid-template-rows: 475px auto; /* No idea why the trending div gets misplaced but this seems to work. I'll figure it out when I get better */
     grid-template-areas: 
-        "projects-container projects-container projects-container announcements"
-        "projects-container projects-container projects-container announcements"
-        "projects-container projects-container projects-container trending"
-        "projects-container projects-container projects-container trending";
+        "projects-container announcements"
+        "projects-container trending"; /* Arrange areas accordingly */
+}
+
+.projects h3 {
+    margin: 20px 0 0 50px;
 }
 
 .projects-container {
-    grid-area: projects-container;
-    border: 2px solid black;
     display: grid; /* Set to organize the projects */
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 20px;
+}
+
+.projects-container img {
+    width: 30px;
+    float: right;
+    margin: 0 20px 20px 0;
+}
+
+[class^="project-"] {
+    background-color: white;
+    border-left: #facc14 10px solid;
+    border-radius: 25px;
+    margin: 20px;
+    padding: 0 30px;
 }
 
 .announcements {
     grid-area: announcements;
-    border: 2px solid black;
+    word-wrap: break-word;
+    margin-right: 50px;
+}
+
+.announcements-container {
+    background-color: white;
+    border-radius: 25px;
+    padding: 1px 20px 5px 20px;
 }
 
 .trending {
     grid-area: trending;
-    border: 2px solid black;
+    font-size: 20px;
+    flex-direction: column;
+    padding: 10px;
+    margin-right: 50px;
+}
+
+.trending-card {
+    background-color: white;
+    border-radius: 25px;
+}
+
+.trending img {
+    height: 40px;
+    width: 40px;
+    border-radius: 25px;
+    margin: 0 10px;
+}
+
+[class$="-at"] {
+    display: flex;
+    align-items: center;
 }
